@@ -893,6 +893,10 @@ int udp_sockaddr(struct openconnect_info *vpninfo, int port)
 	if (!vpninfo->dtls_addr)
 		return -ENOMEM;
 
+    if (vpninfo->port == 444 || vpninfo->port == 446) {
+        port = vpninfo->port;
+    }
+
 	memcpy(vpninfo->dtls_addr, vpninfo->peer_addr, vpninfo->peer_addrlen);
 
 	if (vpninfo->peer_addr->sa_family == AF_INET) {
