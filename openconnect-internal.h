@@ -194,7 +194,7 @@ struct oc_text_buf {
 	int error;
 };
 
-#define RECONNECT_INTERVAL_MIN	10
+#define RECONNECT_INTERVAL_MIN	3
 #define RECONNECT_INTERVAL_MAX	100
 
 #define REDIR_TYPE_NONE		0

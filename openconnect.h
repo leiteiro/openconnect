@@ -277,7 +277,7 @@ struct oc_stats {
 #define OC_CMD_DETACH		'd'
 #define OC_CMD_STATS		's'
 
-#define RECONNECT_INTERVAL_MIN	10
+#define RECONNECT_INTERVAL_MIN	3
 #define RECONNECT_INTERVAL_MAX	100
 
 struct openconnect_info;
