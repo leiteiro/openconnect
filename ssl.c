@@ -1012,7 +1012,7 @@ int ssl_reconnect(struct openconnect_info *vpninfo)
 		if (vpninfo->got_pause_cmd)
 			return 0;
 		timeout -= interval;
-		interval += vpninfo->reconnect_interval;
+		/* interval += vpninfo->reconnect_interval; */
 		if (interval > RECONNECT_INTERVAL_MAX)
 			interval = RECONNECT_INTERVAL_MAX;
 	}
