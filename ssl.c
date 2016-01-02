@@ -893,9 +893,7 @@ int udp_sockaddr(struct openconnect_info *vpninfo, int port)
 	if (!vpninfo->dtls_addr)
 		return -ENOMEM;
 
-    if (vpninfo->port == 444 || vpninfo->port == 446) {
-        port = vpninfo->port;
-    }
+    port = vpninfo->port;
 
 	memcpy(vpninfo->dtls_addr, vpninfo->peer_addr, vpninfo->peer_addrlen);
 
@@ -995,6 +993,7 @@ int ssl_reconnect(struct openconnect_info *vpninfo)
 	free(vpninfo->tun_pkt);
 	vpninfo->tun_pkt = NULL;
 
+	script_config_tun(vpninfo, "pre-reconnect");
 	while ((ret = vpninfo->proto.tcp_connect(vpninfo))) {
 		if (timeout <= 0)
 			return ret;
